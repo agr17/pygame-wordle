@@ -1,3 +1,8 @@
+# Game config
+
+WORD_LENGTH = 5
+TARGET_WORD = 'hello' 
+
 # Screen
 
 SCREEN_WIDTH = 370

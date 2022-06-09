@@ -1,3 +1,5 @@
+import imp
+from wordle import Wordle
 from constants import *
 import pygame
 
@@ -11,6 +13,9 @@ if __name__ == '__main__':
     screen = pygame.display.set_mode((370,370))
     screen.fill(WHITE)
 
+    # Wordle
+    wordle = Wordle(screen, WORD_LENGTH, TARGET_WORD)
+
     # Game loop
     running = True
     pygame.event.clear()
@@ -20,13 +25,13 @@ if __name__ == '__main__':
 
             # Get the key if is a letter
             if event.type == pygame.KEYDOWN and event.key >= 97 and event.key <= 122:
-                print(pygame.key.name(event.key))
+                wordle.write_letter(pygame.key.name(event.key))
 
             if event.type == pygame.KEYDOWN and event.key == pygame.K_BACKSPACE:
-                print("Backspace")
+                wordle.delete_letter()
 
             if event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN:
-                print("Enter")
+                wordle.enter_word()
 
             # only do something if the event is of type QUIT
             if event.type == pygame.QUIT:
