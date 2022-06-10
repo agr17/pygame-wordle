@@ -1,3 +1,4 @@
+from box import Box
 import pygame
 
 class Wordle():
@@ -8,6 +9,8 @@ class Wordle():
 
         self.actual_line = 0
         self.actual_letter = 0
+
+        self.game_grid = []
 
     def write_letter(self, letter):
         if self.actual_letter < self.word_length:
@@ -26,3 +29,19 @@ class Wordle():
     def enter_word(self):
         print('word ready!')
 
+    def create_level(self):
+        separation = 20
+        block_size = 50
+
+        for j in range(self.word_length):
+
+            grid_line = []
+
+            for i in range(self.word_length):
+
+                pos = (separation + (i * separation + i * block_size), separation + (j * separation + j * block_size))
+                aux_box = Box(pos, block_size, 0, pygame.font.Font(None, 68))
+                aux_box.draw(self.screen)
+                grid_line.append(aux_box)
+
+            self.game_grid.append(grid_line)

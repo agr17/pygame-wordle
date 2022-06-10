@@ -8,6 +8,13 @@ TARGET_WORD = 'hello'
 SCREEN_WIDTH = 370
 SCREEN_HEIGHT = 370
 
+# Box states
+
+EMPTY = 0
+FAIL = 1
+SEMI_SUCCESS = 2
+SUCCESS = 3
+
 # Colors
 
 GREEN = (1,154,1)

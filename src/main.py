@@ -1,4 +1,3 @@
-import imp
 from wordle import Wordle
 from constants import *
 import pygame
@@ -15,6 +14,7 @@ if __name__ == '__main__':
 
     # Wordle
     wordle = Wordle(screen, WORD_LENGTH, TARGET_WORD)
+    wordle.create_level()
 
     # Game loop
     running = True
