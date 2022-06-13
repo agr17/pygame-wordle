@@ -1,16 +1,12 @@
 # Game config
 
 WORD_LENGTH = 5
-WORDS_LIST = '../data/words.txt' 
+ATTEMPTS = 6
+WORDS_LIST = f'../data/words_{WORD_LENGTH}.txt' 
 
 # Text fonts
 
 BOX_TEXT_FONT = "../fonts/ClearSans-Bold.ttf"
-
-# Screen
-
-SCREEN_WIDTH = 370
-SCREEN_HEIGHT = 370
 
 # Box dims and separations
 

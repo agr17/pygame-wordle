@@ -13,14 +13,16 @@ if __name__ == '__main__':
     pygame.display.set_icon(icon)
     
     # Screen
-    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    screen_width = WORD_LENGTH * (BLOCK_SIZE + SEPARATION) + SEPARATION
+    screen_height = ATTEMPTS * (BLOCK_SIZE + SEPARATION) + SEPARATION
+    screen = pygame.display.set_mode((screen_width, screen_height))
     screen.fill(WHITE)
 
     # Wordle
     words_str = open(WORDS_LIST).read()
     word_list = words_str.split(',')
     target_word = word_list[random.randint(0, len(word_list) - 1)]
-    wordle = Wordle(screen, WORD_LENGTH, target_word)
+    wordle = Wordle(screen, WORD_LENGTH, ATTEMPTS, target_word)
 
     # Game loop
     running = True
@@ -30,8 +32,8 @@ if __name__ == '__main__':
         for event in pygame.event.get():
 
             if not wordle.finished:
-                # Get the key if is a letter
-                if event.type == pygame.KEYDOWN and 97 <= event.key <= 122:
+                # Get the key if is a letter 
+                if event.type == pygame.KEYDOWN and 97 <= event.key <= 122: # ascii code from a to z
                     wordle.write_letter(pygame.key.name(event.key))
 
                 if event.type == pygame.KEYDOWN and event.key == pygame.K_BACKSPACE:

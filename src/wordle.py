@@ -4,9 +4,10 @@ import pygame
 
 
 class Wordle:
-    def __init__(self, screen, word_length, target_word):
+    def __init__(self, screen, word_length, attemps, target_word):
         self.screen = screen
         self.word_length = word_length
+        self.attemps = attemps
         self.target_word = target_word.upper()
 
         self.actual_line = 0
@@ -41,7 +42,7 @@ class Wordle:
             if win:
                 self.finished = True
                 print('You win!')
-            elif self.actual_line == self.word_length - 1:
+            elif self.actual_line == self.attemps - 1:
                 self.finished = True
                 print('You lose!')
             else:
@@ -51,7 +52,7 @@ class Wordle:
             print('You must finish the line!')
 
     def _create_level(self):
-        for j in range(self.word_length):
+        for j in range(self.attemps):
 
             grid_line = []
 
