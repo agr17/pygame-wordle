@@ -1,5 +1,5 @@
-from constants import *
-from box import Box
+from .constants import *
+from .box import Box
 import random
 import pygame
 

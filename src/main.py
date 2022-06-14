@@ -1,14 +1,13 @@
-from wordle import Wordle
-from constants import *
+from .wordle import Wordle
+from .constants import *
 import pygame
 
 
-if __name__ == '__main__':
-
+def main():
     # initialize 
     pygame.init()
     pygame.display.set_caption("Pygame Wordle")
-    icon = pygame.image.load('../imgs/icon.png')
+    icon = pygame.image.load(ICON_IMG)
     pygame.display.set_icon(icon)
     
     # Screen
@@ -46,4 +45,3 @@ if __name__ == '__main__':
                 running = False
 
         pygame.display.update()
-

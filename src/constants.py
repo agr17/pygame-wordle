@@ -2,11 +2,12 @@
 
 WORD_LENGTH = 5
 ATTEMPTS = 6
-WORDS_LIST = '../data/words_tabatkins.txt'  # '../data/words_test.txt'  
+WORDS_LIST = 'data/words_tabatkins.txt'  # '../data/words_test.txt'  
+ICON_IMG = 'imgs/icon.png'
 
 # Text fonts
 
-BOX_TEXT_FONT = "../fonts/ClearSans-Bold.ttf"
+BOX_TEXT_FONT = "fonts/ClearSans-Bold.ttf"
 
 # Box dims and separations
 

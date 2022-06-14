@@ -14,7 +14,7 @@ When the player send a word there are three possibilities for every letter:
 - Yellow: it's contained in the word, but not at this position
 - Gray: it isn't contained in the word
 
-You can run the game in the "src" folder using `python main.py`. 
+You can run the game using `python Wordle.py`. 
 
 ## Words
 
