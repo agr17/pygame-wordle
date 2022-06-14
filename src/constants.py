@@ -2,7 +2,7 @@
 
 WORD_LENGTH = 5
 ATTEMPTS = 6
-WORDS_LIST = f'../data/words_{WORD_LENGTH}.txt' 
+WORDS_LIST = '../data/words_tabatkins.txt'  # '../data/words_test.txt'  
 
 # Text fonts
 

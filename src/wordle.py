@@ -1,14 +1,16 @@
 from constants import *
 from box import Box
+import random
 import pygame
 
 
 class Wordle:
-    def __init__(self, screen, word_length, attemps, target_word):
+    def __init__(self, screen, word_length, attemps, word_list):
         self.screen = screen
         self.word_length = word_length
         self.attemps = attemps
-        self.target_word = target_word.upper()
+        self.word_list = word_list
+        self.target_word = word_list[random.randint(0, len(word_list) - 1)].upper()
 
         self.actual_line = 0
         self.actual_letter = 0
@@ -44,7 +46,7 @@ class Wordle:
                 print('You win!')
             elif self.actual_line == self.attemps - 1:
                 self.finished = True
-                print('You lose!')
+                print('You lose! The word was: ' + self.target_word)
             else:
                 self.actual_line += 1
                 self.actual_letter = 0
@@ -67,6 +69,20 @@ class Wordle:
 
     def _check_word(self):
         win = True
+
+        word_aux = ''
+        for i in range(self.word_length):
+            word_aux += self.game_grid[self.actual_line][i].get_text()
+
+        # check if the word is the words list
+        if word_aux not in self.word_list: # TODO: error for the player
+            print(f'The word {word_aux} is not in the list! This error is not supported yet!')               
+
+        # check if the word is the target word
+        if word_aux != self.target_word:
+            win = False  
+
+        # change the state of the boxes
         for i in range(self.word_length):
             letter_aux = self.game_grid[self.actual_line][i].get_text()
             
@@ -74,10 +90,8 @@ class Wordle:
                 state = SUCCESS
             elif letter_aux in self.target_word:
                 state = SEMI_SUCCESS
-                win = False
             else:
                 state = FAIL
-                win = False
 
             self.game_grid[self.actual_line][i].set_state(state, self.screen)
 

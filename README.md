@@ -16,6 +16,10 @@ When the player send a word there are three possibilities for every letter:
 
 You can run the game in the "src" folder using `python main.py`. 
 
+## Words
+
+The list of possible wordle words was taken from [wordle-list](git@github.com:tabatkins/wordle-list.git), by the user Tabatkins.
+
 ## Requirements
 
 - [Python](https://python.org)

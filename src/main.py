@@ -1,6 +1,5 @@
 from wordle import Wordle
 from constants import *
-import random
 import pygame
 
 
@@ -20,9 +19,8 @@ if __name__ == '__main__':
 
     # Wordle
     words_str = open(WORDS_LIST).read()
-    word_list = words_str.split(',')
-    target_word = word_list[random.randint(0, len(word_list) - 1)]
-    wordle = Wordle(screen, WORD_LENGTH, ATTEMPTS, target_word)
+    word_list = words_str.split('\n')
+    wordle = Wordle(screen, WORD_LENGTH, ATTEMPTS, word_list)
 
     # Game loop
     running = True
