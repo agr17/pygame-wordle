@@ -18,7 +18,7 @@ You can run the game using `python Wordle.py`.
 
 ## Words
 
-The list of possible wordle words was taken from [wordle-list](git@github.com:tabatkins/wordle-list.git), by the user Tabatkins.
+The list of possible wordle words was taken from [wordle-list](https://github.com/tabatkins/wordle-list), by the user Tabatkins.
 
 ## Requirements
 
