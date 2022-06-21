@@ -21,6 +21,11 @@ FAIL = 1
 SEMI_SUCCESS = 2
 SUCCESS = 3
 
+# Word results
+
+LOSE = 0
+WIN = 1
+NOT_FOUND = 2
 
 # Colors
 

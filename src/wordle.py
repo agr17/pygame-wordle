@@ -40,10 +40,12 @@ class Wordle:
 
     def enter_word(self):
         if self.actual_letter == self.word_length:
-            win = self._check_word()
-            if win:
+            word_result = self._check_word()
+            if word_result == WIN:
                 self.finished = True
                 print('You win!')
+            elif word_result == NOT_FOUND:
+                print('The word is not in the list!')
             elif self.actual_line == self.attemps - 1:
                 self.finished = True
                 print('You lose! The word was: ' + self.target_word)
@@ -68,19 +70,14 @@ class Wordle:
             self.game_grid.append(grid_line)
 
     def _check_word(self):
-        win = True
 
         word_aux = ''
         for i in range(self.word_length):
             word_aux += self.game_grid[self.actual_line][i].get_text()
 
         # check if the word is the words list
-        if word_aux not in self.word_list: # TODO: error for the player
-            print(f'The word {word_aux} is not in the list! This error is not supported yet!')               
-
-        # check if the word is the target word
-        if word_aux != self.target_word:
-            win = False  
+        if word_aux not in self.word_list: 
+            return NOT_FOUND
 
         # change the state of the boxes
         for i in range(self.word_length):
@@ -95,4 +92,5 @@ class Wordle:
 
             self.game_grid[self.actual_line][i].set_state(state, self.screen)
 
-        return win
+        # check if the word is the target word and return the result
+        return WIN if word_aux == self.target_word else LOSE  
