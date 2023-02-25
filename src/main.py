@@ -12,7 +12,7 @@ def main():
     
     # Screen
     screen_width = WORD_LENGTH * (BLOCK_SIZE + SEPARATION) + SEPARATION
-    screen_height = ATTEMPTS * (BLOCK_SIZE + SEPARATION) + SEPARATION
+    screen_height = ATTEMPTS * (BLOCK_SIZE + SEPARATION) + SEPARATION + BLOCK_SIZE + SEPARATION
     screen = pygame.display.set_mode((screen_width, screen_height))
     screen.fill(WHITE)
 
@@ -28,8 +28,7 @@ def main():
     while running:
         for event in pygame.event.get():
 
-            if not wordle.finished:
-                # Get the key if is a letter 
+            if not wordle.game_state.finished:
                 if event.type == pygame.KEYDOWN and 97 <= event.key <= 122: # ascii code from a to z
                     wordle.write_letter(pygame.key.name(event.key))
 

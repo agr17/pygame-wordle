@@ -2,7 +2,7 @@
 
 WORD_LENGTH = 5
 ATTEMPTS = 6
-WORDS_LIST = 'data/words_tabatkins.txt'  # '../data/words_test.txt'  
+WORDS_LIST = 'data/words_test.txt'  # '../data/words_test.txt'  
 ICON_IMG = 'imgs/icon.png'
 
 # Text fonts
@@ -13,6 +13,7 @@ BOX_TEXT_FONT = "fonts/ClearSans-Bold.ttf"
 
 SEPARATION = 20
 BLOCK_SIZE = 50
+TEXT_BLOCK_WIDTH = BLOCK_SIZE * 5 + SEPARATION * 4
 
 # Box states
 
