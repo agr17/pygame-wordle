@@ -30,9 +30,12 @@ class TextBox:
     def draw(self, screen):
         pygame.draw.rect(screen, WHITE, self.rect, width=0)  # delete previous text
         
-        width = floor(self.size[0]*0.005)
-        pygame.draw.rect(screen, BLACK, self.rect, width)
-        text_surface = self.base_font.render(self.box_text, True, BLACK)
+        width = 0 if self.color != BLACK else floor(self.size[0]*0.005)
+        pygame.draw.rect(screen, self.color, self.rect, width)
+        
+        text_color = BLACK if self.color == BLACK else WHITE
+        text_surface = self.base_font.render(self.box_text, True, text_color)
+
         text_rect = text_surface.get_rect(center=self.rect.center)
 
         screen.blit(text_surface, text_rect)
