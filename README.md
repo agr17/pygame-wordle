@@ -6,7 +6,9 @@ Wordle is a web-based game. The player have six attempts to guess a five-letter 
 
 ## Game
 
-![screenshot](./imgs/screenshot.PNG)
+<p align="center">
+  <img src="./imgs/screenshot.PNG" alt="Screenshot">
+</p>
 
 When the player send a word there are three possibilities for every letter:
 
@@ -15,6 +17,18 @@ When the player send a word there are three possibilities for every letter:
 - Gray: it isn't contained in the word
 
 You can run the game using `python Wordle.py`. 
+
+## Software Design
+
+This project implements two design patterns to maintain code organization and modularity: the State pattern and the Observer pattern. The State pattern is used to manage the game's current state, which can be one of the following: Playing, Won, Lost, Word not found, or Line not filled. Each state is encapsulated in a separate class with a common interface to enable switching between states and executing state-specific actions without adding conditional statements to the code.
+
+In contrast, the Observer pattern is utilized to display messages to the player based on the current state of the game. The game state acts as the subject, and a text box acts as the observer. Whenever the game state changes, the text box is notified and accesses the current state to display the appropriate message to the player.
+
+By separating concerns, this design enhances the maintainability and scalability of the code. Additionally, we have included a class diagram below to provide a visual representation of our software design.
+
+<p align="center">
+  <img src="./design/uml.png" alt="Class Diagram">
+</p>
 
 ## Words
 
