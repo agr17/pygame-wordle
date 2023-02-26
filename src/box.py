@@ -2,6 +2,12 @@ from .constants import *
 from math import floor
 import pygame
 
+COLORS = {
+    EMPTY: BLACK,
+    SUCCESS: GREEN,
+    SEMI_SUCCESS: YELLOW,
+    FAIL: GRAY
+}
 
 class Box:
 
@@ -38,14 +44,7 @@ class Box:
         # options for the state
         width = floor(self.size*0.025) if self.state == EMPTY else 0  # border only if it is empty
         font_colour = BLACK if self.state == EMPTY else WHITE 
-        if self.state == EMPTY:
-            block_color = BLACK
-        elif self.state == SUCCESS:
-            block_color = GREEN
-        elif self.state == SEMI_SUCCESS:
-            block_color = YELLOW
-        elif self.state == FAIL:
-            block_color = GRAY
+        block_color = COLORS.get(self.state) 
             
         pygame.draw.rect(screen, block_color, self.rect, width=width)
         text_surface = self.base_font.render(self.box_text, True, font_colour)
