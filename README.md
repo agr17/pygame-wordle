@@ -30,6 +30,14 @@ By separating concerns, this design enhances the maintainability and scalability
   <img src="./design/uml.png" alt="Class Diagram">
 </p>
 
+## Optimization
+
+In addition to designing the code with maintainability and modularity in mind, we also optimized the performance of the game to ensure a smooth and enjoyable experience for the player.
+
+Given that Pygame's event loop runs continuously regardless of user input, we optimized the game loop to ensure that it only updates when necessary. In the case of Pygame-Wordle, since there are no animations or events occurring without user input, the game loop waits for user input before updating the game elements.
+
+We also optimized the display of the letter boxes and the player message box. Rather than updating them continuously, we only update them when necessary. This optimization is made possible by the Observer pattern, which notifies the player message box of the game state changes and ensures that it only updates when necessary.
+
 ## Words
 
 The list of possible wordle words was taken from [wordle-list](https://github.com/tabatkins/wordle-list), by the user Tabatkins.
