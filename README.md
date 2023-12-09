@@ -18,6 +18,17 @@ When the player send a word there are three possibilities for every letter:
 
 You can run the game using `python Wordle.py`. 
 
+### Requirements
+
+- [Python](https://python.org)
+- [Pygame](https://www.pygame.org/news)
+
+### Controls 
+
+- A-Z: write
+- Enter: send the word
+- ESC: exit
+
 ## Software Design
 
 This project implements two design patterns to maintain code organization and modularity: the State pattern and the Observer pattern. The State pattern is used to manage the game's current state, which can be one of the following: Playing, Won, Lost, Word not found, or Line not filled. Each state is encapsulated in a separate class with a common interface to enable switching between states and executing state-specific actions without adding conditional statements to the code.
@@ -41,14 +52,3 @@ We also optimized the display of the letter boxes and the player message box. Ra
 ## Words
 
 The list of possible wordle words was taken from [wordle-list](https://github.com/tabatkins/wordle-list), by the user Tabatkins.
-
-## Requirements
-
-- [Python](https://python.org)
-- [Pygame](https://www.pygame.org/news)
-
-## Controls 
-
-- A-Z: write
-- Enter: send the word
-- ESC: exit
